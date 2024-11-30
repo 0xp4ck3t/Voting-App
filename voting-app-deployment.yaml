@@ -1,5 +1,5 @@
+---
 ##postgress deployment
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -32,9 +32,8 @@ spec:
               value: "postgres"
             - name: POSTGRES_HOST_AUTH_METHOD
               value: trust
-
+---
 ##postgress service
-
 apiVersion: v1 
 kind: Service
 metadata:
@@ -49,9 +48,8 @@ spec:
   selector:
     name: postgres-pod
     app: demo-voting-app
-
+---
 ##redis deployment
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -77,9 +75,8 @@ spec:
           image: redis
           ports:
             - containerPort: 6379
-
+---
 ##redis service
-
 apiVersion: v1 
 kind: Service
 metadata:
@@ -94,10 +91,8 @@ spec:
   selector:
     name: redis-pod
     app: demo-voting-app
-
-
+---
 ##result app deployment
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -123,9 +118,8 @@ spec:
           image: kodekloud/examplevotingapp_result:v1
           ports:
             - containerPort: 80
-
+---
 ##result app service
-
 apiVersion: v1 
 kind: Service
 metadata:
@@ -141,9 +135,8 @@ spec:
   selector:
     name: result-app-pod
     app: demo-voting-app
-
+---
 ##voting app deployment
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -169,9 +162,8 @@ spec:
           image: kodekloud/examplevotingapp_vote:v1
           ports:
             - containerPort: 80
-
+---
 ##voting app service
-
 apiVersion: v1 
 kind: Service
 metadata:
@@ -187,9 +179,8 @@ spec:
   selector:
     name: voting-app-pod
     app: demo-voting-app
-
+---
 ##worker deployment
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -213,4 +204,3 @@ spec:
       containers:
         - name: worker-app
           image: kodekloud/examplevotingapp_worker:v1
-
