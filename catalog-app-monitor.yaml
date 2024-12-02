@@ -4,7 +4,7 @@ metadata:
   name: catalog-app-monitor
   namespace: monitoring
   labels:
-    release: kube-prometheus-stacke
+    release: kube-prometheus-stack
 spec:
   namespaceSelector:
     matchNames:
