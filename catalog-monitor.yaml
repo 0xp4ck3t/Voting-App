@@ -14,6 +14,6 @@ spec:
       app.kubernetes.io/name: catalog
       app.kubernetes.io/instance: catalog
   endpoints:
-    - port: 8080  
+    - port: "8080"  
       path: /metrics
       interval: 15s
